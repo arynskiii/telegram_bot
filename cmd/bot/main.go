@@ -28,7 +28,8 @@ func main() {
 	}
 	tokenRepository := boltdb.NewTokenRepository(db)
 
-	telegramBot := telegram.NewBot(bot, tokenRepository, pocketClient, "http://localhost/")
+	telegramBot := telegram.NewBot(bot, tokenRepository, pocketClient, "http://localhost:8080/")
+
 	authorizationServer := server.NewAuthorizationServer(pocketClient, tokenRepository, "https://t.me/poket_aryn_bot")
 
 	go func() {

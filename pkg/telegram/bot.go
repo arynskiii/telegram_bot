@@ -31,6 +31,7 @@ func (b *Bot) Start() error {
 		log.Fatal(err)
 	}
 	b.handleUpdates(updates)
+
 	return nil
 }
 
