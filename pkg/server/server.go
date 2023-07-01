@@ -1,6 +1,7 @@
 package server
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 	"telbot/pkg/repository"
@@ -50,7 +51,7 @@ func (s *AuthorizationServer) ServeHTTP(w http.ResponseWriter, r *http.Request) 
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-
+	log.Println("chat_id", chatID)
 	requestToken, err := s.tokenRepository.Get(chatID, repository.RequesTokens)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
@@ -67,7 +68,7 @@ func (s *AuthorizationServer) ServeHTTP(w http.ResponseWriter, r *http.Request) 
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-
+	log.Printf("chat_id : %d\nrequest_token: %s\naccess_token: %s\n", chatID, requestToken, authResponse.AccessToken)
 	w.Header().Add("Location", s.redirectUrl)
 	w.WriteHeader(http.StatusMovedPermanently)
 
