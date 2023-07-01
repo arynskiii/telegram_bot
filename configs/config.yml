@@ -1,0 +1,11 @@
+db_file: "bot.db"
+
+bot_url: "https://t.me/poket_aryn_bot"
+
+messages:
+  responses:
+  start: "Привет! Чтобы сохранить ссылки в своем Pocket аккаунте,для начала тебе необходимо дать мне на это доступ. Для этого переходи по ссылке:\n%s"
+  already_authorized: "Ты уже авторизирован. Присылай ссылку, а я ее сохраню!"
+  saved_succesfuly: "Ссылка успешно сохранена"
+  unknown_command: "Я не знаю такой команды!"
+  errors:
